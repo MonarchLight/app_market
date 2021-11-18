@@ -1,3 +1,5 @@
+import '../widgets/main_drawer.dart';
+
 import '../screens/favorites_screen.dart';
 
 import '../screens/categories_screen.dart';
@@ -11,34 +13,46 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
+  final List<Map<String, Object>> _pages = [
+    {"page": CategoriesScreen(), "title": "Categories"},
+    {"page": FavoritesScreen(), "title": "Your Favorite"},
+  ];
+
+  int _selectPageIndex = 0;
+  void _selectPage(int index) {
+    setState(() {
+      _selectPageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text("Food"),
-          bottom: TabBar(
-            indicatorColor: Colors.white,
-            unselectedLabelColor: Colors.black26,
-            tabs: [
-              Tab(
-                icon: Icon(Icons.category),
-                text: "Category",
-              ),
-              Tab(
-                icon: Icon(Icons.star),
-                text: "Favorites",
-              )
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_pages[_selectPageIndex]["title"].toString()),
+      ),
+      drawer: MainDrawer(),
+      body: _pages[_selectPageIndex]["page"] as Widget,
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _selectPage,
+        backgroundColor: Color.fromRGBO(255, 179, 0, 1),
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.black45,
+        currentIndex: _selectPageIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.category,
+            ),
+            label: "cfg",
           ),
-        ),
-        body: TabBarView(
-          children: [
-            CategoriesScreen(),
-            FavoritesScreen(),
-          ],
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.star,
+            ),
+            label: "fsdfs",
+          ),
+        ],
       ),
     );
   }
