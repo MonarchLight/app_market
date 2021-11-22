@@ -6,7 +6,13 @@ class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("dsfgdfgsdfg"),
+      child: Row(
+        children: [
+          Text("dsfgdfgsdfg"),
+          Spacer(),
+          Text("dsfgdfgsdfg"),
+        ],
+      ),
     );
   }
 }

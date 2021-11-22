@@ -1,13 +1,11 @@
 import './screens/filters_screen.dart';
-
 import './screens/tabs_screen.dart';
-
 import './screens/meal_detail_screen.dart';
-
 import './screens/category_meals_screen.dart';
-
 import './screens/categories_screen.dart';
+
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());

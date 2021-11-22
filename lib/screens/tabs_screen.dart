@@ -35,11 +35,11 @@ class _TabsScreenState extends State<TabsScreen> {
       body: _pages[_selectPageIndex]["page"] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
-        backgroundColor: Color.fromRGBO(255, 179, 0, 1),
+        backgroundColor: Color.fromRGBO(64, 127, 203, 1),
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.black45,
         currentIndex: _selectPageIndex,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.category,
