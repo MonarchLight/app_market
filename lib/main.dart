@@ -11,16 +11,29 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Map<String, bool> _filters = {
+    "gluten": false,
+    "vegan": false,
+    "lactose": false,
+    "vegetarian": false,
+  };
+
+  void _setFilters(Map<String, bool> filterData) {}
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.amber)
-              .copyWith(secondary: Colors.amber),
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.amber),
           canvasColor: const Color.fromRGBO(255, 254, 229, 1),
           fontFamily: "Raleway",
           textTheme: ThemeData.light().textTheme.copyWith(

@@ -30,7 +30,7 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
       categoryTitle = routerArgs["title"]!;
       final categoryId = routerArgs["id"];
       // ignore: unused_local_variable
-      final displayedMeals = DUMMY_MEALS.where((meal) {
+      displayedMeals = DUMMY_MEALS.where((meal) {
         return meal.categories.contains(
             categoryId); //contains method and contains returns true if that list contains a specific value.
       }).toList();
