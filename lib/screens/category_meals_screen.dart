@@ -7,6 +7,10 @@ import '../dummy_data.dart';
 class CategoryMealScreen extends StatefulWidget {
   static const routeName = "/category-meal";
 
+  final List<Meal> availableMeals;
+
+  CategoryMealScreen(this.availableMeals);
+
   @override
   State<CategoryMealScreen> createState() => _CategoryMealScreenState();
 }
@@ -30,7 +34,7 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
       categoryTitle = routerArgs["title"]!;
       final categoryId = routerArgs["id"];
       // ignore: unused_local_variable
-      displayedMeals = DUMMY_MEALS.where((meal) {
+      displayedMeals = widget.availableMeals.where((meal) {
         return meal.categories.contains(
             categoryId); //contains method and contains returns true if that list contains a specific value.
       }).toList();
